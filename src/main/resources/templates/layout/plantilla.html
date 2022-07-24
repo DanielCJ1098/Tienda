@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" th:href="@{/css/estilos.css}" />
-        <link href="../static/css/estilos.css" rel="stylesheet" type="text/css"/>
-        <link href="../static/css/menu.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" th:href="@{/css/estilos.css}" />
-    </head>
-    <body>
-        <header id="encabezado" th:fragment="header" >
-            <h1 style="background-color: blue; color: white">TechShop</h1>
-        </header>
-        <footer th:fragment="footer">
-            <p>&COPY; Derechos Reservados 2022</p>
-        </footer>
+<html xmlns:th="http://www.thymeleaf.org"      xmlns="http://www.w3.org/1999/xhtml">    
+    <head>        
+        <title>TechShop</title>        
+        <meta charset="UTF-8">    
+    </head>    
+    <body>        
+        <header th:fragment="header" class="header">            
+            <nav class="nav">                
+                <a th:href="@{/}" class="logo nav-link">TechShop</a>                
+                <ul class="nav-menu">                    
+                    <li class="nav-menu-item">                        
+                        <a th:href="@{/cliente/listado}" class="nav-menu-link nav-link">Clientes</a>
+                    </li>                    
+                    <li class="nav-menu-item">                        
+                        <a th:href="@{/categoria/listado}" class="nav-menu-link nav-link">Categorías</a>
+                    </li>                    
+                    <li class="nav-menu-item">                        
+                        <a th:href="@{/articulo/listado}" class="nav-menu-link nav-link">Articulos</a>
+                    </li>                
+                </ul>            
+            </nav>        
+        </header>        
+        <footer th:fragment="footer" class="footer">            
+            <p>&COPY; Derechos Reservados 2022</p>        
+        </footer>    
     </body>
 </html>
