@@ -1,5 +1,7 @@
 package com.tienda;
 
+import com.tienda.service.UsuarioDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,22 +11,24 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+@Autowired
+UsuarioDetailsServiceImpl userDetailsService;
     //El siguiente metodo funciona para hacer la autenticacion del usuario
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("{noop}123")
-                .roles("ADMIN", "VENDEDOR", "USER")
-                .and()
-                .withUser("vendedor")
-                .password("{noop}123")
-                .roles("VENDEDOR", "USER")
-                .and()
-                .withUser("user")
-                .password("{noop}123")
-                .roles("USER");
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password("{noop}123")
+//                .roles("ADMIN", "VENDEDOR", "USER")
+//                .and()
+//                .withUser("vendedor")
+//                .password("{noop}123")
+//                .roles("VENDEDOR", "USER")
+//                .and()
+//                .withUser("user")
+//                .password("{noop}123")
+//                .roles("USER");
+auth.userDetailsService(userDetailsService);
     }
 
     //Definir la config de accesos
